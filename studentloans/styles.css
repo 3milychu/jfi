@@ -1,10 +1,11 @@
 
-h1, h2 {
-  text-transform: capitalize;
+h1, h2, h3 {
+  font-family: 'Quattrocento', serif;
 }
 
 h4 {
-  font-size:3em;
+  font-size:2em;
+  font-family: 'Work Sans', sans-serif;
 }
 
 .media-holder {
@@ -208,7 +209,6 @@ em {
 }
 
 body {
-  font-family: 'Montserrat', sans-serif;
   left:0;
   top:0;
   margin: 0; 

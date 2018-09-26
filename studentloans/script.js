@@ -6,8 +6,8 @@ function caps(string) {
 var tcBlack = "#130C0E";
 
 // rest of vars
-var w = 1000,
-    h = 1000,
+var w = 900,
+    h = 850,
     maxNodeSize = 2,
     x_browser = 20,
     y_browser = 25,
