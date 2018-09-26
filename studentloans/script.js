@@ -37,7 +37,7 @@ d3.json("https://raw.githubusercontent.com/3milychu/jfi/master/studentloans/data
   // create children hierarchy json
 
 var newData = { name :"root", 
-      path: "https://raw.githubusercontent.com/3milychu/csmi-data/master/assets/logo.jpg", 
+      path: "https://raw.githubusercontent.com/3milychu/jfi/master/studentloans/assets/sources.png", 
       children : [] },
     levels = ["path"];
 
@@ -65,7 +65,7 @@ json.forEach(function(d){
           country:d.country, allocation:d.allocation, NOCT:d.NOCT, involved:d.involved, tools:d.tools, 
           relevance:d.relevance, economic:d.economic, psych:d.psych, social:d.social, health:d.health, 
           schooling:d.schooling, means:d.means, research_design:d.research_design,
-          employment_effects:d.employment_effects, size:d.size, path:d.path});
+          employment_effects:d.employment_effects, size:d.size, path:d.path, hover:d.hover});
     });
 });
 
@@ -137,7 +137,7 @@ function update() {
   // Append a circle
   nodeEnter.append("svg:circle")
       .attr("r", function(d) { return Math.sqrt(d.size) / 40 || 1.5; })
-      .style("fill", "#eee");
+      .style("fill", "none");
 
   // Append images
   var images = nodeEnter.append("svg:image")
@@ -147,50 +147,7 @@ function update() {
         .attr("height", 30)
         .attr("width", 30);
 
-  
-  // make the image grow a little on mouse over and add the text details on click
   var setEvents = images
-          // Append details text
-          .on( 'click', function (d) {
-
-            // Details if "Economic"
-            if (d.path == "https://raw.githubusercontent.com/3milychu/jfi/master/studentloans/assets/1.jpg") {
-              d3.select("h1").html("<span class='h-bold'>‡</span>" + "<div class='one'>economic effects</div>");
-              d3.select("h2").html("<div class='paper'>"+d.paper+"</div>"); 
-              d3.select("h3").html(d.summ);
-            }
-
-            // Details if sheet is "Psych"
-            if (d.path == "https://raw.githubusercontent.com/3milychu/jfi/master/studentloans/assets/2.jpg") {
-              d3.select("h1").html("<span class='h-bold'>‡</span>"+ "<div class='two'>psychological effects</div>");
-              d3.select("h2").html("<div class='paper'>"+d.paper+"</div>"); 
-              d3.select("h3").html(d.summ);
-            }
-
-            // Details if sheet is "Social"
-            if (d.path == "https://raw.githubusercontent.com/3milychu/jfi/master/studentloans/assets/3.jpg") {
-              d3.select("h1").html("<span class='h-bold'>‡</span>"+"<div class='three'>social effects</div>");
-              d3.select("h2").html("<div class='paper'>"+d.paper+"</div>"); 
-              d3.select("h3").html(d.summ);
-            }
-
-            // Details if sheet is "Health"
-            if (d.path == "https://raw.githubusercontent.com/3milychu/jfi/master/studentloans/assets/4.jpg") {
-              d3.select("h1").html("<span class='h-bold'>‡</span>"+"<div class='four'>health effects</div>");
-              d3.select("h2").html("<div class='paper'>"+d.paper+"</div>"); 
-              d3.select("h3").html(d.summ);
-            }
-
-            // Details if sheet is "Schooling"
-            if (d.path == "https://raw.githubusercontent.com/3milychu/jfi/master/studentloans/assets/5.jpg") {
-              d3.select("h1").html("<span class='h-bold'>‡</span>"+"<div class='five'>schooling effects</div>");
-              d3.select("h2").html("<div class='paper'>"+d.paper+"</div>"); 
-              d3.select("h3").html(d.summ);
-            }
-                
-              
-           })
-
           .on( 'mouseenter', function() {
             // select element in current context
             d3.select( this )
@@ -213,10 +170,54 @@ function update() {
     var rollover = nodeEnter.append("svg:image")
         .attr("class", "nodeimage")
         .attr("xlink:href", function(d) { return d.hover; })
-        .style("height","100px")
+        .style("height","40")
         .style("z-index","1")
-        .attr("x", x_browser -55)
-        .attr("y", y_browser -70)
+        .attr("x", x_browser -35)
+        .attr("y", y_browser -35)
+
+
+      // make the image grow a little on mouse over and add the text details on click
+  var setEvents = rollover
+          // Append details text
+          .on( 'click', function (d) {
+
+            // Details if "Economic"
+            if (d.path == "https://raw.githubusercontent.com/3milychu/jfi/master/studentloans/assets/1.png") {
+              d3.select("h1").html("<span class='h-bold'>‡</span>" + "<div class='one'>economic effects</div>");
+              d3.select("h2").html("<div class='paper'>"+d.paper+"</div>"); 
+              d3.select("h3").html(d.summ);
+            }
+
+            // Details if sheet is "Psych"
+            if (d.path == "https://raw.githubusercontent.com/3milychu/jfi/master/studentloans/assets/2.png") {
+              d3.select("h1").html("<span class='h-bold'>‡</span>"+ "<div class='two'>psychological effects</div>");
+              d3.select("h2").html("<div class='paper'>"+d.paper+"</div>"); 
+              d3.select("h3").html(d.summ);
+            }
+
+            // Details if sheet is "Social"
+            if (d.path == "https://raw.githubusercontent.com/3milychu/jfi/master/studentloans/assets/3.png") {
+              d3.select("h1").html("<span class='h-bold'>‡</span>"+"<div class='three'>social effects</div>");
+              d3.select("h2").html("<div class='paper'>"+d.paper+"</div>"); 
+              d3.select("h3").html(d.summ);
+            }
+
+            // Details if sheet is "Health"
+            if (d.path == "https://raw.githubusercontent.com/3milychu/jfi/master/studentloans/assets/4.png") {
+              d3.select("h1").html("<span class='h-bold'>‡</span>"+"<div class='four'>health effects</div>");
+              d3.select("h2").html("<div class='paper'>"+d.paper+"</div>"); 
+              d3.select("h3").html(d.summ);
+            }
+
+            // Details if sheet is "Schooling"
+            if (d.path == "https://raw.githubusercontent.com/3milychu/jfi/master/studentloans/assets/5.png") {
+              d3.select("h1").html("<span class='h-bold'>‡</span>"+"<div class='five'>schooling effects</div>");
+              d3.select("h2").html("<div class='paper'>"+d.paper+"</div>"); 
+              d3.select("h3").html(d.summ);
+            }
+                
+              
+           })
 
  
   // Exit any old nodes.
