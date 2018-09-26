@@ -7,7 +7,7 @@ var tcBlack = "#130C0E";
 
 // rest of vars
 var w = 900,
-    h = 850,
+    h = 800,
     maxNodeSize = 2,
     x_browser = 20,
     y_browser = 25,
@@ -144,8 +144,8 @@ function update() {
         .attr("xlink:href",  function(d) { return d.path;})
         .attr("x", function(d) { return -10;})
         .attr("y", function(d) { return -10;})
-        .attr("height", 20)
-        .attr("width", 20);
+        .attr("height", 30)
+        .attr("width", 30);
 
   
   // make the image grow a little on mouse over and add the text details on click
@@ -155,36 +155,36 @@ function update() {
 
             // Details if "Economic"
             if (d.path == "https://raw.githubusercontent.com/3milychu/jfi/master/studentloans/assets/1.jpg") {
-              d3.select("h1").html("Economic").attr("class", "people"); 
-              d3.select("h2").html(d.paper); 
+              d3.select("h1").html("<span class='h-bold'>‡</span>" + "<div class='one'>economic effects</div>");
+              d3.select("h2").html("<div class='paper'>"+d.paper+"</div>"); 
               d3.select("h3").html(d.summ);
             }
 
             // Details if sheet is "Psych"
             if (d.path == "https://raw.githubusercontent.com/3milychu/jfi/master/studentloans/assets/2.jpg") {
-              d3.select("h1").html("Psychological").attr("class", "event"); 
-              d3.select("h2").html(d.paper); 
+              d3.select("h1").html("<span class='h-bold'>‡</span>"+ "<div class='two'>psychological effects</div>");
+              d3.select("h2").html("<div class='paper'>"+d.paper+"</div>"); 
               d3.select("h3").html(d.summ);
             }
 
             // Details if sheet is "Social"
             if (d.path == "https://raw.githubusercontent.com/3milychu/jfi/master/studentloans/assets/3.jpg") {
-              d3.select("h1").html("Social").attr("class", "course"); 
-              d3.select("h2").html(d.paper); 
+              d3.select("h1").html("<span class='h-bold'>‡</span>"+"<div class='three'>social effects</div>");
+              d3.select("h2").html("<div class='paper'>"+d.paper+"</div>"); 
               d3.select("h3").html(d.summ);
             }
 
             // Details if sheet is "Health"
             if (d.path == "https://raw.githubusercontent.com/3milychu/jfi/master/studentloans/assets/4.jpg") {
-              d3.select("h1").html("Health").attr("class", "org"); 
-              d3.select("h2").html(d.paper); 
+              d3.select("h1").html("<span class='h-bold'>‡</span>"+"<div class='four'>health effects</div>");
+              d3.select("h2").html("<div class='paper'>"+d.paper+"</div>"); 
               d3.select("h3").html(d.summ);
             }
 
             // Details if sheet is "Schooling"
             if (d.path == "https://raw.githubusercontent.com/3milychu/jfi/master/studentloans/assets/5.jpg") {
-              d3.select("h1").html("Schooling").attr("class", "center"); 
-              d3.select("h2").html(d.paper); 
+              d3.select("h1").html("<span class='h-bold'>‡</span>"+"<div class='five'>schooling effects</div>");
+              d3.select("h2").html("<div class='paper'>"+d.paper+"</div>"); 
               d3.select("h3").html(d.summ);
             }
                 
@@ -197,8 +197,8 @@ function update() {
               .transition()
               .attr("x", function(d) { return -15;})
               .attr("y", function(d) { return -15;})
-              .attr("height", 30)
-              .attr("width", 30);
+              .attr("height", 40)
+              .attr("width", 40);
           })
           // set back
           .on( 'mouseleave', function() {
@@ -206,9 +206,17 @@ function update() {
               .transition()
               .attr("x", function(d) { return -10;})
               .attr("y", function(d) { return -10;})
-              .attr("height", 20)
-              .attr("width", 20);
+              .attr("height", 30)
+              .attr("width", 30);
           });
+
+    var rollover = nodeEnter.append("svg:image")
+        .attr("class", "nodeimage")
+        .attr("xlink:href", function(d) { return d.hover; })
+        .style("height","100px")
+        .style("z-index","1")
+        .attr("x", x_browser -55)
+        .attr("y", y_browser -70)
 
  
   // Exit any old nodes.
