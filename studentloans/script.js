@@ -37,7 +37,7 @@ d3.json("https://raw.githubusercontent.com/3milychu/jfi/master/studentloans/data
   // create children hierarchy json
 
 var newData = { name :"root", 
-      path: "https://raw.githubusercontent.com/3milychu/jfi/master/studentloans/assets/sources.png", 
+      path: "https://raw.githubusercontent.com/3milychu/jfi/master/studentloans/assets/logo.png", 
       children : [] },
     levels = ["path"];
 
