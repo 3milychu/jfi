@@ -64,7 +64,7 @@ json.forEach(function(d){
         if ( depth === levels.length - 1 ) depthCursor.push({ paper:d.paper, summ:d.summ, url:d.url, 
           country:d.country, allocation:d.allocation, NOCT:d.NOCT, involved:d.involved, tools:d.tools, 
           relevance:d.relevance, economic:d.economic, psych:d.psych, social:d.social, health:d.health, 
-          schooling:d.schooling, means:d.means, research_design:d.research_design,
+          schooling:d.schooling, means:d.means, research_design:d.research_design, NOCT_recode:d.NOCT_recode,
           employment_effects:d.employment_effects, size:d.size, path:d.path, hover:d.hover});
     });
 });
@@ -183,6 +183,7 @@ function update() {
 
             // Details if "Economic"
             if (d.path == "https://raw.githubusercontent.com/3milychu/jfi/master/cashtransfers/assets/1.png") {
+              d3.select("p").html("Type of NOCT: " + d.NOCT_recode);
               d3.select("h1").html("<span class='h-bold'>‡</span>" + "<div class='one'>economic effects</div>");
               d3.select("h2").html("<div class='paper'>"+d.paper+"</div>"); 
               d3.select("h3").html(d.summ);
@@ -190,6 +191,7 @@ function update() {
 
             // Details if sheet is "Psych"
             if (d.path == "https://raw.githubusercontent.com/3milychu/jfi/master/cashtransfers/assets/2.png") {
+              d3.select("p").html("Type of NOCT: " + d.NOCT_recode);
               d3.select("h1").html("<span class='h-bold'>‡</span>"+ "<div class='two'>psychological effects</div>");
               d3.select("h2").html("<div class='paper'>"+d.paper+"</div>"); 
               d3.select("h3").html(d.summ);
@@ -197,6 +199,7 @@ function update() {
 
             // Details if sheet is "Social"
             if (d.path == "https://raw.githubusercontent.com/3milychu/jfi/master/cashtransfers/assets/3.png") {
+              d3.select("p").html("Type of NOCT: "+ d.NOCT_recode);
               d3.select("h1").html("<span class='h-bold'>‡</span>"+"<div class='three'>social effects</div>");
               d3.select("h2").html("<div class='paper'>"+d.paper+"</div>"); 
               d3.select("h3").html(d.summ);
@@ -204,6 +207,7 @@ function update() {
 
             // Details if sheet is "Health"
             if (d.path == "https://raw.githubusercontent.com/3milychu/jfi/master/cashtransfers/assets/4.png") {
+              d3.select("p").html("Type of NOCT: " + d.NOCT_recode);
               d3.select("h1").html("<span class='h-bold'>‡</span>"+"<div class='four'>health effects</div>");
               d3.select("h2").html("<div class='paper'>"+d.paper+"</div>"); 
               d3.select("h3").html(d.summ);
@@ -211,6 +215,7 @@ function update() {
 
             // Details if sheet is "Schooling"
             if (d.path == "https://raw.githubusercontent.com/3milychu/jfi/master/cashtransfers/assets/5.png") {
+              d3.select("p").html("Type of NOCT: " + d.NOCT_recode);
               d3.select("h1").html("<span class='h-bold'>‡</span>"+"<div class='five'>schooling effects</div>");
               d3.select("h2").html("<div class='paper'>"+d.paper+"</div>"); 
               d3.select("h3").html(d.summ);
