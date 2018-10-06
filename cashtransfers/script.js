@@ -55,7 +55,7 @@ json.forEach(function(d){
         });
         // Add a branch if it isn't there
         if ( isNaN(index) ) {
-            depthCursor.push({ name : d[property], children : []});
+            depthCursor.push({ name : d[property], root: "https://raw.githubusercontent.com/3milychu/jfi/master/cashtransfers/assets/"+d[property]+".png",children : []});
             index = depthCursor.length - 1;
         }
         // Now reference the new child array as we go deeper into the tree
