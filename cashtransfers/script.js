@@ -21,7 +21,7 @@ vis = d3.select("#vis")
   .attr("width", w)
   .attr("height", h);
  
-d3.json("https://raw.githubusercontent.com/3milychu/jfi/master/studentloans/data/data.json", function(json) {
+d3.json("https://raw.githubusercontent.com/3milychu/jfi/master/cashtransfers/data/data.json", function(json) {
 
   var format = d3.format("");
 
@@ -37,9 +37,9 @@ d3.json("https://raw.githubusercontent.com/3milychu/jfi/master/studentloans/data
   // create children hierarchy json
 
 var newData = { name :"root", 
-      path: "https://raw.githubusercontent.com/3milychu/jfi/master/studentloans/assets/logo.png", 
+      path: "https://raw.githubusercontent.com/3milychu/jfi/master/cashtransfers/assets/logo.png", 
       children : [] },
-    levels = ["path"];
+    levels = ["path", ""];
 
 // For each data row, loop through the expected levels traversing the output tree
 json.forEach(function(d){
@@ -182,35 +182,35 @@ function update() {
           .on( 'click', function (d) {
 
             // Details if "Economic"
-            if (d.path == "https://raw.githubusercontent.com/3milychu/jfi/master/studentloans/assets/1.png") {
+            if (d.path == "https://raw.githubusercontent.com/3milychu/jfi/master/cashtransfers/assets/1.png") {
               d3.select("h1").html("<span class='h-bold'>‡</span>" + "<div class='one'>economic effects</div>");
               d3.select("h2").html("<div class='paper'>"+d.paper+"</div>"); 
               d3.select("h3").html(d.summ);
             }
 
             // Details if sheet is "Psych"
-            if (d.path == "https://raw.githubusercontent.com/3milychu/jfi/master/studentloans/assets/2.png") {
+            if (d.path == "https://raw.githubusercontent.com/3milychu/jfi/master/cashtransfers/assets/2.png") {
               d3.select("h1").html("<span class='h-bold'>‡</span>"+ "<div class='two'>psychological effects</div>");
               d3.select("h2").html("<div class='paper'>"+d.paper+"</div>"); 
               d3.select("h3").html(d.summ);
             }
 
             // Details if sheet is "Social"
-            if (d.path == "https://raw.githubusercontent.com/3milychu/jfi/master/studentloans/assets/3.png") {
+            if (d.path == "https://raw.githubusercontent.com/3milychu/jfi/master/cashtransfers/assets/3.png") {
               d3.select("h1").html("<span class='h-bold'>‡</span>"+"<div class='three'>social effects</div>");
               d3.select("h2").html("<div class='paper'>"+d.paper+"</div>"); 
               d3.select("h3").html(d.summ);
             }
 
             // Details if sheet is "Health"
-            if (d.path == "https://raw.githubusercontent.com/3milychu/jfi/master/studentloans/assets/4.png") {
+            if (d.path == "https://raw.githubusercontent.com/3milychu/jfi/master/cashtransfers/assets/4.png") {
               d3.select("h1").html("<span class='h-bold'>‡</span>"+"<div class='four'>health effects</div>");
               d3.select("h2").html("<div class='paper'>"+d.paper+"</div>"); 
               d3.select("h3").html(d.summ);
             }
 
             // Details if sheet is "Schooling"
-            if (d.path == "https://raw.githubusercontent.com/3milychu/jfi/master/studentloans/assets/5.png") {
+            if (d.path == "https://raw.githubusercontent.com/3milychu/jfi/master/cashtransfers/assets/5.png") {
               d3.select("h1").html("<span class='h-bold'>‡</span>"+"<div class='five'>schooling effects</div>");
               d3.select("h2").html("<div class='paper'>"+d.paper+"</div>"); 
               d3.select("h3").html(d.summ);
