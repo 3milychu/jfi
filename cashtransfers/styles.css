@@ -1,0 +1,184 @@
+@font-face {
+  font-family: 'Founders Grotesk';
+  src: url('https://phenomenal-world.woo.cat/fonts/FoundersGrotesk-Light.eot'); /* IE9 Compat Modes */
+  src: url('https://phenomenal-world.woo.cat/fonts/FoundersGrotesk-Light.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('https://phenomenal-world.woo.cat/fonts/FoundersGrotesk-Light.woff') format('woff'), /* Modern Browsers */
+       url('https://phenomenal-world.woo.cat/fonts/FoundersGrotesk-Light.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('https://phenomenal-world.woo.cat/fonts/FoundersGrotesk-Light.svg#dc544f9d1e4c18e86a46bd108e04a26d') format('svg'); /* Legacy iOS */
+
+  font-style:   normal;
+  font-weight:  200;
+}
+
+@font-face {
+  font-family: 'CMU Serif';
+  src: url('https://phenomenal-world.woo.cat/fonts/cmunti.eot'); /* IE9 Compat Modes */
+  src: url('https://phenomenal-world.woo.cat/fonts/cmunti.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('https://phenomenal-world.woo.cat/fonts/cmunti.woff') format('woff'), /* Modern Browsers */
+       url('https://phenomenal-world.woo.cat/fonts/cmunti.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('https://phenomenal-world.woo.cat/fonts/cmunti.svg#1f119954ff6b70c37e3ddb61d2164971') format('svg'); /* Legacy iOS */
+
+  font-style:   italic;
+  font-weight:  400;
+}
+
+@font-face {
+  font-family: 'CMU Serif';
+  src: url('https://phenomenal-world.woo.cat/fonts/cmunrm.eot'); /* IE9 Compat Modes */
+  src: url('https://phenomenal-world.woo.cat/fonts/cmunrm.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('https://phenomenal-world.woo.cat/fonts/cmunrm.woff') format('woff'), /* Modern Browsers */
+       url('https://phenomenal-world.woo.cat/fonts/cmunrm.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('https://phenomenal-world.woo.cat/fonts/cmunrm.svg#b19a3fcc59b1d4740e6d6e9eb9cec199') format('svg'); /* Legacy iOS */
+
+  font-style:   normal;
+  font-weight:  400;
+}
+
+@font-face {
+  font-family: 'CMU Serif';
+  src: url('https://phenomenal-world.woo.cat/fonts/cmunbi.eot'); /* IE9 Compat Modes */
+  src: url('https://phenomenal-world.woo.cat/fonts/cmunbi.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('https://phenomenal-world.woo.cat/fonts/cmunbi.woff') format('woff'), /* Modern Browsers */
+       url('https://phenomenal-world.woo.cat/fonts/cmunbi.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('https://phenomenal-world.woo.cat/fonts/cmunbi.svg#51e40c307490eb4f915148e752c550d1') format('svg'); /* Legacy iOS */
+
+  font-style:   italic;
+  font-weight:  700;
+}
+
+@font-face {
+  font-family: 'CMU Serif';
+  src: url('https://phenomenal-world.woo.cat/fonts/cmunbx.eot'); /* IE9 Compat Modes */
+  src: url('https://phenomenal-world.woo.cat/fonts/cmunbx.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('https://phenomenal-world.woo.cat/fonts/cmunbx.woff') format('woff'), /* Modern Browsers */
+       url('https://phenomenal-world.woo.cat/fonts/cmunbx.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('https://phenomenal-world.woo.cat/fonts/cmunbx.svg#d7e0fafe6573441f0dfff33be5e578f6') format('svg'); /* Legacy iOS */
+
+  font-style:   normal;
+  font-weight:  700;
+}
+
+
+h1 {
+  font-family: 'Work Sans', sans-serif;
+}
+
+h2, h3 {
+  font-family: 'Quattrocento', serif;
+  font-size:1em;
+}
+
+h1 {
+  font-size:0.95em;
+}
+
+h4 {
+  font-size:2em;
+  font-family: 'Work Sans', sans-serif;
+}
+
+.paper {
+  font-style:italic;
+}
+
+.h-bold {
+  display:inline-block;
+  color: #4873EB;
+  word-spacing:0.3em;
+  padding-right:1em;
+}
+
+.one, .two, .three, .four, .five {
+  display:inline-block;
+  width:auto;
+  background-color: #ECECFD;
+  border: #4873EB solid 0.05em;
+  border-radius: 1em;
+  color: #4873EB;
+  padding: 0.4em 0.8em;
+  font-weight:300;
+
+}
+/* vis */
+
+.header {
+  text-align:left;
+  width:30%;
+  padding:5%;
+  font-weight:400;
+  z-index:0;
+  display:block;
+}
+
+.header p {
+  display:block;
+  font-size:0.7em;
+  line-height:1.5em;
+  width:60%;
+}
+
+h3 a {
+  color: #243973;
+  text-decoration:underline;
+}
+
+svg {
+  z-index:1;
+}
+
+.node image {
+  cursor:pointer;
+}
+
+em {
+  font-weight:900;
+  font-style:normal;
+}
+
+body {
+  left:0;
+  top:0;
+  margin: 0; 
+  width:100%;
+  color: #ED574B;
+  font-weight:200;
+}
+
+path.link {
+  fill: none;
+  stroke-width: 1px;
+}
+
+.nodetext {
+  font-size:0.8em;
+}
+
+.node:not(:hover) .nodetext {
+  display: none;
+}
+
+.node:not(:hover) .nodeimage{
+  display: none;
+}
+
+/*Responsive*/
+
+  @media screen and (max-width:1023px) {
+   body {
+     width:100vh;
+   }
+  .header{
+    width:90%;
+    height:90%;
+    background-color:black;
+    opacity:0.8;
+  }
+  .header h1{
+    width:80%;
+    font-size:10em;
+    line-height:1em;
+  }
+  .header p {
+    font-size:2em;
+  }
+ }
