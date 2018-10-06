@@ -39,7 +39,7 @@ d3.json("https://raw.githubusercontent.com/3milychu/jfi/master/cashtransfers/dat
 var newData = { name :"root", 
       path: "https://raw.githubusercontent.com/3milychu/jfi/master/cashtransfers/assets/logo.png", 
       children : [] },
-    levels = ["path", ""];
+    levels = ["NOCT_recode", "path"];
 
 // For each data row, loop through the expected levels traversing the output tree
 json.forEach(function(d){
@@ -264,8 +264,8 @@ function nodeTransform(d) {
  */ 
 function click(d) {
   if (d.children) {
-    // d._children = d.children;
-    // d.children = null;
+    d._children = d.children;
+    d.children = null;
   } else {
     d.children = d._children;
     d._children = null;
