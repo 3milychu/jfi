@@ -76,6 +76,12 @@ json.forEach(function(d){
   root.fixed = true;
   root.x = w / 2.5;
   root.y = h / 2.8;
+
+  flatten(root);
+  setParents(root, null);
+  collapseAll(root);
+  root.children = root._children;
+  root._children = null;
  
  
         // Build the path
@@ -88,19 +94,16 @@ json.forEach(function(d){
  
      update();
 });
- 
- 
-// functions
 
+// functions
 function update() {
   var nodes = flatten(root),
       links = d3.layout.tree().links(nodes);
- 
   // Restart the force layout.
   force.nodes(nodes)
         .links(links)
         .gravity(0.05)
-    .charge(-500)
+    .charge(-1000)
     .linkDistance(30)
     .friction(0.5)
     .linkStrength(function(l, i) {return 1; })
@@ -298,3 +301,24 @@ function flatten(root) {
   recurse(root);
   return nodes;
 } 
+
+function collapseAll(d){
+    if (d.children){
+        d.children.forEach(collapseAll);
+        d._children = d.children;
+        d.children = null;
+    }
+    else if (d._childred){
+        d._children.forEach(collapseAll);
+    }
+}
+
+function setParents(d, p){
+    d._parent = p;
+  if (d.children) {
+      d.children.forEach(function(e){ setParents(e,d);});
+  } else if (d._children) {
+      d._children.forEach(function(e){ setParents(e,d);});
+  }
+}
+
