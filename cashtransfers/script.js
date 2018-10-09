@@ -39,7 +39,7 @@ d3.json("https://raw.githubusercontent.com/3milychu/jfi/master/cashtransfers/dat
 var newData = { name :"root", 
       path: "https://raw.githubusercontent.com/3milychu/jfi/master/cashtransfers/assets/logo.png", 
       children : [] },
-    levels = ["NOCT_recode", "path"];
+    levels = ["cat_recode", "path"];
 
 // For each data row, loop through the expected levels traversing the output tree
 json.forEach(function(d){
@@ -141,7 +141,7 @@ function update() {
 
   // Append images
   var images = nodeEnter.append("svg:image")
-        .attr("xlink:href",  function(d) { return d.path;})
+        .attr("xlink:href",  function(d) { return "https://raw.githubusercontent.com/3milychu/jfi/master/cashtransfers/assets/"+d.path+".png";})
         .attr("x", function(d) { return -10;})
         .attr("y", function(d) { return -10;})
         .attr("height", 30)
@@ -169,7 +169,7 @@ function update() {
 
     var rollover = nodeEnter.append("svg:image")
         .attr("class", "nodeimage")
-        .attr("xlink:href", function(d) { return d.hover; })
+        .attr("xlink:href", function(d) { return "https://raw.githubusercontent.com/3milychu/jfi/master/cashtransfers/assets/"+d.hover+".png"; })
         .style("height","40")
         .style("z-index","1")
         .attr("x", x_browser -35)
@@ -182,7 +182,7 @@ function update() {
           .on( 'click', function (d) {
 
             // Details if "Economic"
-            if (d.path == "https://raw.githubusercontent.com/3milychu/jfi/master/cashtransfers/assets/1.png") {
+            if (d.path == 4) {
               d3.select("p").html("Type of NOCT: " + d.NOCT_recode);
               d3.select("h1").html("<span class='h-bold'>‡</span>" + "<div class='one'>economic effects</div>");
               d3.select("h2").html("<div class='paper'>"+d.paper+"</div>"); 
@@ -190,7 +190,7 @@ function update() {
             }
 
             // Details if sheet is "Psych"
-            if (d.path == "https://raw.githubusercontent.com/3milychu/jfi/master/cashtransfers/assets/2.png") {
+            if (d.path == 5) {
               d3.select("p").html("Type of NOCT: " + d.NOCT_recode);
               d3.select("h1").html("<span class='h-bold'>‡</span>"+ "<div class='two'>psychological effects</div>");
               d3.select("h2").html("<div class='paper'>"+d.paper+"</div>"); 
@@ -198,7 +198,7 @@ function update() {
             }
 
             // Details if sheet is "Social"
-            if (d.path == "https://raw.githubusercontent.com/3milychu/jfi/master/cashtransfers/assets/3.png") {
+            if (d.path == 6) {
               d3.select("p").html("Type of NOCT: "+ d.NOCT_recode);
               d3.select("h1").html("<span class='h-bold'>‡</span>"+"<div class='three'>social effects</div>");
               d3.select("h2").html("<div class='paper'>"+d.paper+"</div>"); 
@@ -206,7 +206,7 @@ function update() {
             }
 
             // Details if sheet is "Health"
-            if (d.path == "https://raw.githubusercontent.com/3milychu/jfi/master/cashtransfers/assets/4.png") {
+            if (d.path == 7) {
               d3.select("p").html("Type of NOCT: " + d.NOCT_recode);
               d3.select("h1").html("<span class='h-bold'>‡</span>"+"<div class='four'>health effects</div>");
               d3.select("h2").html("<div class='paper'>"+d.paper+"</div>"); 
@@ -214,7 +214,7 @@ function update() {
             }
 
             // Details if sheet is "Schooling"
-            if (d.path == "https://raw.githubusercontent.com/3milychu/jfi/master/cashtransfers/assets/5.png") {
+            if (d.path == 8) {
               d3.select("p").html("Type of NOCT: " + d.NOCT_recode);
               d3.select("h1").html("<span class='h-bold'>‡</span>"+"<div class='five'>schooling effects</div>");
               d3.select("h2").html("<div class='paper'>"+d.paper+"</div>"); 
