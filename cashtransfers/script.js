@@ -21,7 +21,7 @@ vis = d3.select("#vis")
   .attr("width", w)
   .attr("height", h);
  
-d3.json("https://raw.githubusercontent.com/3milychu/jfi/master/cashtransfers/data/data_new.json", function(json) {
+d3.json("https://raw.githubusercontent.com/3milychu/cashtransfers/master/data/data.json", function(json) {
 
   var format = d3.format("");
 
