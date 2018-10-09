@@ -32,12 +32,12 @@ d3.json("https://raw.githubusercontent.com/3milychu/jfi/master/cashtransfers/dat
   json = json;
 
   json = json.filter(function(d) { 
-            return d.size == 40000});
+            return d.cat_recode != ""});
 
   // create children hierarchy json
 
 var newData = { name :"root", 
-      path: "https://raw.githubusercontent.com/3milychu/jfi/master/cashtransfers/assets/logo.png", 
+      path: "https://raw.githubusercontent.com/3milychu/jfi/master/cashtransfers/assets/logo", 
       children : [] },
     levels = ["cat_recode", "path"];
 
@@ -55,7 +55,7 @@ json.forEach(function(d){
         });
         // Add a branch if it isn't there
         if ( isNaN(index) ) {
-            depthCursor.push({ name : d[property], root: "https://raw.githubusercontent.com/3milychu/jfi/master/cashtransfers/assets/"+d[property]+".png",children : []});
+            depthCursor.push({ name : d[property], path: d[property] ,children : []});
             index = depthCursor.length - 1;
         }
         // Now reference the new child array as we go deeper into the tree
