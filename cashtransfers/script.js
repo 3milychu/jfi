@@ -151,6 +151,51 @@ function update() {
         .attr("width", function(d) {return d.size / 1000;});
 
   var setEvents = images
+  // Append details text
+          .on( 'click', function (d) {
+
+            // Details if "Economic"
+            if (d.path == 4) {
+              d3.select("p").html("Type of NOCT: " + d.NOCT_recode);
+              d3.select("h1").html("<span class='h-bold'>‡</span>" + "<div class='one'>economic effects</div>");
+              d3.select("h2").html("<div class='paper'>"+d.paper+"</div>"); 
+              d3.select("h3").html(d.summ);
+            }
+
+            // Details if sheet is "Psych"
+            if (d.path == 5) {
+              d3.select("p").html("Type of NOCT: " + d.NOCT_recode);
+              d3.select("h1").html("<span class='h-bold'>‡</span>"+ "<div class='two'>psychological effects</div>");
+              d3.select("h2").html("<div class='paper'>"+d.paper+"</div>"); 
+              d3.select("h3").html(d.summ);
+            }
+
+            // Details if sheet is "Social"
+            if (d.path == 6) {
+              d3.select("p").html("Type of NOCT: "+ d.NOCT_recode);
+              d3.select("h1").html("<span class='h-bold'>‡</span>"+"<div class='three'>social effects</div>");
+              d3.select("h2").html("<div class='paper'>"+d.paper+"</div>"); 
+              d3.select("h3").html(d.summ);
+            }
+
+            // Details if sheet is "Health"
+            if (d.path == 7) {
+              d3.select("p").html("Type of NOCT: " + d.NOCT_recode);
+              d3.select("h1").html("<span class='h-bold'>‡</span>"+"<div class='four'>health effects</div>");
+              d3.select("h2").html("<div class='paper'>"+d.paper+"</div>"); 
+              d3.select("h3").html(d.summ);
+            }
+
+            // Details if sheet is "Schooling"
+            if (d.path == 8) {
+              d3.select("p").html("Type of NOCT: " + d.NOCT_recode);
+              d3.select("h1").html("<span class='h-bold'>‡</span>"+"<div class='five'>schooling effects</div>");
+              d3.select("h2").html("<div class='paper'>"+d.paper+"</div>"); 
+              d3.select("h3").html(d.summ);
+            }
+                
+              
+           })
           .on( 'mouseenter', function() {
             // select element in current context
             d3.select( this )
