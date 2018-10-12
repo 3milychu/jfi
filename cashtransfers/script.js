@@ -37,7 +37,7 @@ d3.json("https://raw.githubusercontent.com/3milychu/cashtransfers/master/data/da
   // create children hierarchy json
 
 var newData = { name :"root", 
-      path: "https://raw.githubusercontent.com/3milychu/jfi/master/cashtransfers/assets/logo", 
+      path: "logo", 
       children : [] },
     levels = ["cat_recode", "path"];
 
@@ -55,7 +55,7 @@ json.forEach(function(d){
         });
         // Add a branch if it isn't there
         if ( isNaN(index) ) {
-            depthCursor.push({ name : d[property], path: d[property] ,children : []});
+            depthCursor.push({ name : d[property], path: d[property]+"_root", size: 80000, children : []});
             index = depthCursor.length - 1;
         }
         // Now reference the new child array as we go deeper into the tree
@@ -102,10 +102,10 @@ function update() {
   // Restart the force layout.
   force.nodes(nodes)
         .links(links)
-        .gravity(0.05)
-    .charge(-1000)
-    .linkDistance(30)
-    .friction(0.5)
+        .gravity(0.005)
+    .charge(-1200)
+    .linkDistance(50)
+    .friction(0.4)
     .linkStrength(function(l, i) {return 1; })
     .size([w, h])
     .on("tick", tick)
@@ -144,39 +144,39 @@ function update() {
 
   // Append images
   var images = nodeEnter.append("svg:image")
-        .attr("xlink:href",  function(d) { return "https://raw.githubusercontent.com/3milychu/jfi/master/cashtransfers/assets/"+d.path+".png";})
-        .attr("x", function(d) { return -10;})
-        .attr("y", function(d) { return -10;})
-        .attr("height", 30)
-        .attr("width", 30);
+        .attr("xlink:href",  function(d) { return "assets/"+d.path+".png";})
+        .attr("x", function(d) { return -(d.size/2000);})
+        .attr("y", function(d) { return -(d.size/2000);})
+        .attr("height", function(d) {return d.size / 1000;})
+        .attr("width", function(d) {return d.size / 1000;});
 
   var setEvents = images
           .on( 'mouseenter', function() {
             // select element in current context
             d3.select( this )
               .transition()
-              .attr("x", function(d) { return -15;})
-              .attr("y", function(d) { return -15;})
-              .attr("height", 40)
-              .attr("width", 40);
+              .attr("x", function(d) { return -(d.size/1800);})
+              .attr("y", function(d) { return -(d.size/1800);})
+              .attr("height", function(d) {return d.size / 1000 + 10;})
+              .attr("width", function(d) {return d.size / 1000 + 10;});
           })
           // set back
           .on( 'mouseleave', function() {
             d3.select( this )
               .transition()
-              .attr("x", function(d) { return -10;})
-              .attr("y", function(d) { return -10;})
-              .attr("height", 30)
-              .attr("width", 30);
+              .attr("x", function(d) { return -(d.size/2000);})
+              .attr("y", function(d) { return -(d.size/2000);})
+              .attr("height", function(d) {return d.size / 1000;})
+              .attr("width", function(d) {return d.size / 1000;});
           });
 
     var rollover = nodeEnter.append("svg:image")
         .attr("class", "nodeimage")
-        .attr("xlink:href", function(d) { return "https://raw.githubusercontent.com/3milychu/jfi/master/cashtransfers/assets/"+d.hover+".png"; })
+        .attr("xlink:href", function(d) { return "assets/"+d.hover+".png"; })
         .style("height","40")
         .style("z-index","1")
-        .attr("x", x_browser -35)
-        .attr("y", y_browser -35)
+        .attr("x", x_browser -45)
+        .attr("y", y_browser -45)
 
 
       // make the image grow a little on mouse over and add the text details on click
