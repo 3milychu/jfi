@@ -6,7 +6,7 @@ function caps(string) {
 var tcBlack = "#130C0E";
 
 // rest of vars
-var w = window.innerWidth,
+var w = window.innerWidth/1.5,
     h = window.innerHeight,
     maxNodeSize = 1,
     x_browser = 20,
@@ -64,8 +64,14 @@ json.forEach(function(d){
         });
         // Add a branch if it isn't there
         if ( isNaN(index) ) {
-            depthCursor.push({ name : d[property], path: d[property]+"_root", size: 80000, children : []});
+            if(d[property] == 0 | d[property] ==1 | d[property] == 2 | d[property] == 3) {
+              depthCursor.push({ name : d[property], path: d[property]+"_root", size: 120000, children : []});
             index = depthCursor.length - 1;
+            } else {
+              depthCursor.push({ name : d[property], path: d[property]+"_root", size: 80000, children : []});
+            index = depthCursor.length - 1;
+            }
+            
         }
         // Now reference the new child array as we go deeper into the tree
         depthCursor = depthCursor[index].children;
@@ -83,7 +89,7 @@ json.forEach(function(d){
  
   root = newData;
   root.fixed = true;
-  root.x = w / 3;
+  root.x = w /2 ;
   root.y = h / 2;
 
   flatten(root);
@@ -112,9 +118,9 @@ function update() {
   force.nodes(nodes)
         .links(links)
         .gravity(0.005)
-    .charge(-1200)
-    .linkDistance(5)
-    .friction(0.2)
+    .charge(-1000)
+    .linkDistance(1)
+    .friction(0.6)
     .linkStrength(function(l, i) {return 1; })
     .size([w, h])
     .on("tick", tick)
@@ -148,7 +154,7 @@ function update() {
  
   // Append a circle
   nodeEnter.append("svg:circle")
-      .attr("r", function(d) { return Math.sqrt(d.size) / 400 || 1.5; })
+      .attr("r", function(d) { return Math.sqrt(d.size) / 40 || 5.5; })
       .style("fill", "none");
 
   // Append images
@@ -209,10 +215,10 @@ function update() {
             // select element in current context
             d3.select( this )
               .transition()
-              .attr("x", function(d) { return -(d.size/1800);})
-              .attr("y", function(d) { return -(d.size/1800);})
-              .attr("height", function(d) {return d.size / 1000 + 10;})
-              .attr("width", function(d) {return d.size / 1000 + 10;});
+              .attr("x", function(d) { return -(d.size/3500);})
+              .attr("y", function(d) { return -(d.size/3500);})
+              .attr("height", function(d) {return d.size / 2000 + 10;})
+              .attr("width", function(d) {return d.size / 2000 + 10;});
           })
           // set back
           .on( 'mouseleave', function() {
