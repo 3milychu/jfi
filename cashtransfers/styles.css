@@ -1,22 +1,34 @@
 @font-face {
-  font-family: 'Founders Grotesk';
-  src: url('https://phenomenal-world.woo.cat/fonts/FoundersGrotesk-Light.eot'); /* IE9 Compat Modes */
-  src: url('https://phenomenal-world.woo.cat/fonts/FoundersGrotesk-Light.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('https://phenomenal-world.woo.cat/fonts/FoundersGrotesk-Light.woff') format('woff'), /* Modern Browsers */
-       url('https://phenomenal-world.woo.cat/fonts/FoundersGrotesk-Light.ttf')  format('truetype'), /* Safari, Android, iOS */
-       url('https://phenomenal-world.woo.cat/fonts/FoundersGrotesk-Light.svg#dc544f9d1e4c18e86a46bd108e04a26d') format('svg'); /* Legacy iOS */
+  font-family: 'CMU Serif';
+  src: url('fonts/cmunti.eot'); /* IE9 Compat Modes */
+  src: url('fonts/cmunti.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('fonts/cmunti.woff') format('woff'), /* Modern Browsers */
+       url('fonts/cmunti.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('fonts/cmunti.svg#1f119954ff6b70c37e3ddb61d2164971') format('svg'); /* Legacy iOS */
 
-  font-style:   normal;
-  font-weight:  200;
+  font-style:   italic;
+  font-weight:  100;
 }
 
 @font-face {
   font-family: 'CMU Serif';
-  src: url('https://phenomenal-world.woo.cat/fonts/cmunti.eot'); /* IE9 Compat Modes */
-  src: url('https://phenomenal-world.woo.cat/fonts/cmunti.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('https://phenomenal-world.woo.cat/fonts/cmunti.woff') format('woff'), /* Modern Browsers */
-       url('https://phenomenal-world.woo.cat/fonts/cmunti.ttf')  format('truetype'), /* Safari, Android, iOS */
-       url('https://phenomenal-world.woo.cat/fonts/cmunti.svg#1f119954ff6b70c37e3ddb61d2164971') format('svg'); /* Legacy iOS */
+  src: url('fonts/cmunrm.eot'); /* IE9 Compat Modes */
+  src: url('fonts/cmunrm.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('fonts/cmunrm.woff') format('woff'), /* Modern Browsers */
+       url('fonts/cmunrm.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('fonts/cmunrm.svg#b19a3fcc59b1d4740e6d6e9eb9cec199') format('svg'); /* Legacy iOS */
+
+  font-style:   normal;
+  font-weight:  100;
+}
+
+@font-face {
+  font-family: 'CMU Serif';
+  src: url('fonts/cmunti.eot'); /* IE9 Compat Modes */
+  src: url('fonts/cmunti.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('fonts/cmunti.woff') format('woff'), /* Modern Browsers */
+       url('fonts/cmunti.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('fonts/cmunti.svg#1f119954ff6b70c37e3ddb61d2164971') format('svg'); /* Legacy iOS */
 
   font-style:   italic;
   font-weight:  400;
@@ -24,11 +36,11 @@
 
 @font-face {
   font-family: 'CMU Serif';
-  src: url('https://phenomenal-world.woo.cat/fonts/cmunrm.eot'); /* IE9 Compat Modes */
-  src: url('https://phenomenal-world.woo.cat/fonts/cmunrm.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('https://phenomenal-world.woo.cat/fonts/cmunrm.woff') format('woff'), /* Modern Browsers */
-       url('https://phenomenal-world.woo.cat/fonts/cmunrm.ttf')  format('truetype'), /* Safari, Android, iOS */
-       url('https://phenomenal-world.woo.cat/fonts/cmunrm.svg#b19a3fcc59b1d4740e6d6e9eb9cec199') format('svg'); /* Legacy iOS */
+  src: url('fonts/cmunrm.eot'); /* IE9 Compat Modes */
+  src: url('fonts/cmunrm.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('fonts/cmunrm.woff') format('woff'), /* Modern Browsers */
+       url('fonts/cmunrm.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('fonts/cmunrm.svg#b19a3fcc59b1d4740e6d6e9eb9cec199') format('svg'); /* Legacy iOS */
 
   font-style:   normal;
   font-weight:  400;
@@ -36,11 +48,11 @@
 
 @font-face {
   font-family: 'CMU Serif';
-  src: url('https://phenomenal-world.woo.cat/fonts/cmunbi.eot'); /* IE9 Compat Modes */
-  src: url('https://phenomenal-world.woo.cat/fonts/cmunbi.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('https://phenomenal-world.woo.cat/fonts/cmunbi.woff') format('woff'), /* Modern Browsers */
-       url('https://phenomenal-world.woo.cat/fonts/cmunbi.ttf')  format('truetype'), /* Safari, Android, iOS */
-       url('https://phenomenal-world.woo.cat/fonts/cmunbi.svg#51e40c307490eb4f915148e752c550d1') format('svg'); /* Legacy iOS */
+  src: url('fonts/cmunbi.eot'); /* IE9 Compat Modes */
+  src: url('fonts/cmunbi.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('fonts/cmunbi.woff') format('woff'), /* Modern Browsers */
+       url('fonts/cmunbi.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('fonts/cmunbi.svg#51e40c307490eb4f915148e752c550d1') format('svg'); /* Legacy iOS */
 
   font-style:   italic;
   font-weight:  700;
@@ -48,11 +60,11 @@
 
 @font-face {
   font-family: 'CMU Serif';
-  src: url('https://phenomenal-world.woo.cat/fonts/cmunbx.eot'); /* IE9 Compat Modes */
-  src: url('https://phenomenal-world.woo.cat/fonts/cmunbx.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('https://phenomenal-world.woo.cat/fonts/cmunbx.woff') format('woff'), /* Modern Browsers */
-       url('https://phenomenal-world.woo.cat/fonts/cmunbx.ttf')  format('truetype'), /* Safari, Android, iOS */
-       url('https://phenomenal-world.woo.cat/fonts/cmunbx.svg#d7e0fafe6573441f0dfff33be5e578f6') format('svg'); /* Legacy iOS */
+  src: url('fonts/cmunbx.eot'); /* IE9 Compat Modes */
+  src: url('fonts/cmunbx.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('fonts/cmunbx.woff') format('woff'), /* Modern Browsers */
+       url('fonts/cmunbx.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('fonts/cmunbx.svg#d7e0fafe6573441f0dfff33be5e578f6') format('svg'); /* Legacy iOS */
 
   font-style:   normal;
   font-weight:  700;
@@ -60,21 +72,25 @@
 
 
 h1 {
-  font-family: 'Work Sans', sans-serif;
+  font-family: 'Helvetica Neue', sans-serif;
 }
 
 h2, h3 {
-  font-family: 'Quattrocento', serif;
+  font-family: 'CMU Serif', serif;
   font-size:0.5em;
+  font-weight:100;
 }
 
 h1 {
   font-size:0.7em;
+  font-weight:100;
 }
 
 h4 {
   font-size:1em;
-  font-family: 'Work Sans', sans-serif;
+  font-family: 'Helvetica Neue', sans-serif;
+  font-weight:200;
+  letter-spacing:0.05em;
 }
 
 .paper {
@@ -97,7 +113,7 @@ h4 {
   border-radius: 1em;
   color: #4873EB;
   padding: 0.4em 0.8em;
-  font-weight:300;
+  font-weight:100;
 
 }
 /* vis */
@@ -136,8 +152,9 @@ svg {
 }
 
 em {
-  font-weight:900;
+  font-weight:100;
   font-style:normal;
+  letter-spacing:0.05em;
 }
 
 body {
