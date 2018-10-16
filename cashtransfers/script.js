@@ -6,12 +6,21 @@ function caps(string) {
 var tcBlack = "#130C0E";
 
 // rest of vars
-var w = 900,
-    h = 800,
-    maxNodeSize = 2,
+var w = window.innerWidth,
+    h = window.innerHeight,
+    maxNodeSize = 1,
     x_browser = 20,
     y_browser = 25,
     root;
+
+window.onclick = function() {
+  resize();
+}
+
+function resize () {
+  w = window.innerWidth;
+  h = window.innerHeight;
+}
  
 var vis;
 var force = d3.layout.force(); 
@@ -74,8 +83,8 @@ json.forEach(function(d){
  
   root = newData;
   root.fixed = true;
-  root.x = w / 2.5;
-  root.y = h / 2.8;
+  root.x = w / 3;
+  root.y = h / 2;
 
   flatten(root);
   setParents(root, null);
@@ -104,8 +113,8 @@ function update() {
         .links(links)
         .gravity(0.005)
     .charge(-1200)
-    .linkDistance(50)
-    .friction(0.4)
+    .linkDistance(5)
+    .friction(0.2)
     .linkStrength(function(l, i) {return 1; })
     .size([w, h])
     .on("tick", tick)
@@ -139,16 +148,16 @@ function update() {
  
   // Append a circle
   nodeEnter.append("svg:circle")
-      .attr("r", function(d) { return Math.sqrt(d.size) / 40 || 1.5; })
+      .attr("r", function(d) { return Math.sqrt(d.size) / 400 || 1.5; })
       .style("fill", "none");
 
   // Append images
   var images = nodeEnter.append("svg:image")
         .attr("xlink:href",  function(d) { return "assets/"+d.path+".png";})
-        .attr("x", function(d) { return -(d.size/2000);})
-        .attr("y", function(d) { return -(d.size/2000);})
-        .attr("height", function(d) {return d.size / 1000;})
-        .attr("width", function(d) {return d.size / 1000;});
+        .attr("x", function(d) { return -(d.size/4000);})
+        .attr("y", function(d) { return -(d.size/4000);})
+        .attr("height", function(d) {return d.size / 2000;})
+        .attr("width", function(d) {return d.size / 2000;});
 
   var setEvents = images
   // Append details text
@@ -209,10 +218,10 @@ function update() {
           .on( 'mouseleave', function() {
             d3.select( this )
               .transition()
-              .attr("x", function(d) { return -(d.size/2000);})
-              .attr("y", function(d) { return -(d.size/2000);})
-              .attr("height", function(d) {return d.size / 1000;})
-              .attr("width", function(d) {return d.size / 1000;});
+              .attr("x", function(d) { return -(d.size/4000);})
+              .attr("y", function(d) { return -(d.size/4000);})
+              .attr("height", function(d) {return d.size / 2000;})
+              .attr("width", function(d) {return d.size / 2000;});
           });
 
     var rollover = nodeEnter.append("svg:image")

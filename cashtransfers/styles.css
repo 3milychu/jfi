@@ -65,15 +65,15 @@ h1 {
 
 h2, h3 {
   font-family: 'Quattrocento', serif;
-  font-size:1em;
+  font-size:0.5em;
 }
 
 h1 {
-  font-size:0.95em;
+  font-size:0.7em;
 }
 
 h4 {
-  font-size:2em;
+  font-size:1em;
   font-family: 'Work Sans', sans-serif;
 }
 
@@ -85,14 +85,15 @@ h4 {
   display:inline-block;
   color: #4873EB;
   word-spacing:0.3em;
-  padding-right:1em;
+  padding-right:0.5em;
 }
 
 .one, .two, .three, .four, .five {
+  font-size:0.5em;
   display:inline-block;
   width:auto;
   background-color: #ECECFD;
-  border: #4873EB solid 0.05em;
+  border: #4873EB solid 0.1em;
   border-radius: 1em;
   color: #4873EB;
   padding: 0.4em 0.8em;
@@ -108,6 +109,10 @@ h4 {
   font-weight:400;
   z-index:0;
   display:block;
+}
+
+.header h4 {
+  margin-bottom:0%;
 }
 
 .header p {
