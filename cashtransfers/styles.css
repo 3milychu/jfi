@@ -113,7 +113,8 @@ h4 {
   border-radius: 1em;
   color: #4873EB;
   padding: 0.4em 0.8em;
-  font-weight:100;
+  font-weight:400;
+  letter-spacing:0.05em;
 
 }
 /* vis */
@@ -183,9 +184,33 @@ path.link {
   display: none;
 }
 
+header {
+ width:25%;
+ position:absolute;
+ margin-left:70%;
+}
+
 /*Responsive*/
 
-  @media screen and (max-width:1023px) {
+@media screen and (min-width:900px){
+  header {
+    width:30%;
+    margin-left:65%;
+  }
+  h4 {
+    font-size:2em;
+  }
+  h1, h2, h3 {
+    font-size:1em;
+  }
+  .one, .two, .three, .four, .five {
+    font-size: 0.8em;
+    font-weight:300;
+    border: #4873EB solid 0.1em;
+  }
+}
+
+@media screen and (max-width:1023px) {
    body {
      width:100vh;
    }

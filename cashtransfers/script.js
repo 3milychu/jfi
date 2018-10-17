@@ -1,3 +1,7 @@
+ window.addEventListener("resize", function() {
+    location.reload();
+ });
+
 function caps(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
@@ -12,15 +16,6 @@ var w = window.innerWidth/1.5,
     x_browser = 20,
     y_browser = 25,
     root;
-
-window.onclick = function() {
-  resize();
-}
-
-function resize () {
-  w = window.innerWidth;
-  h = window.innerHeight;
-}
  
 var vis;
 var force = d3.layout.force(); 
@@ -137,9 +132,7 @@ function update() {
  
   // Exit any old paths.
   path.exit().remove();
- 
- 
- 
+
   // Update the nodes…
   var node = vis.selectAll("g.node")
       .data(nodes, function(d) { return d.id; });
