@@ -139,6 +139,12 @@ h4 {
   width:60%;
 }
 
+.effects {
+  width:15%;
+  margin-left:15%;
+  vertical-align:middle;
+}
+
 h3 a {
   color: #243973;
   text-decoration:underline;
@@ -208,6 +214,10 @@ header {
     font-weight:300;
     border: #4873EB solid 0.1em;
   }
+  .effects {
+    width:12.5%;
+    margin-left:5%;
+  }
 }
 
 @media screen and (max-width:1023px) {
@@ -228,4 +238,9 @@ header {
   .header p {
     font-size:2em;
   }
+  .effects {
+    width:18%;
+    margin-left:5%;
+  }
+
  }

@@ -3,12 +3,11 @@
 <head>
 
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0">
-
+  <meta name="viewport" content="width=device-width">
   <title>The Phenomenal World | Visualization Test</title>
   <meta name="description" content="The Whole Mind by Jain Family Institute.">
 
-  <link rel="stylesheet" href="https://pw-dev.jainfamilyinstitute.org/assets/css/app.css">
+  <link rel="stylesheet" href="jfi-styles.css">
   <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono:400" rel="stylesheet">
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.2.0/zepto.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/zepto.waypoints.min.js"></script>
@@ -19,21 +18,6 @@
   </script>
   <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
   <script src="https://pw-dev.jainfamilyinstitute.org/assets/js/app.js"></script>
-  <!-- Matomo -->
-  <script type="text/javascript">
-    var _paq = _paq || [];
-    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
-    _paq.push(['trackPageView']);
-    _paq.push(['enableLinkTracking']);
-    (function() {
-      var u="//pw-dev.jainfamilyinstitute.org/piwik/";
-      _paq.push(['setTrackerUrl', u+'piwik.php']);
-      _paq.push(['setSiteId', '1']);
-      var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-      g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
-    })();
-  </script>
-  <!-- End Matomo Code -->
 
 </head>
 <style>
@@ -143,7 +127,7 @@ h1 {
   </ul>
 
   <div id="jfi-icon" class="xs-hide">
-    <a href="https://pw-dev.jainfamilyinstitute.org"><img src="/assets/images/jfi-icon.svg" alt=""></a>
+    <a href="https://pw-dev.jainfamilyinstitute.org"><img src="https://pw-dev.jainfamilyinstitute.org/assets/images/jfi-icon.svg" alt=""></a>
   </div>
 
   <main class="main m3" role="main">
@@ -188,7 +172,7 @@ h1 {
                 [INSERT FIGURE: literal crate, boxes, and person making prediction.]
 <div class="expand-visualization sans type-s"><span class="expand">Expand</span><span class="close">Close</span>
 </div>
-<iframe src="index.html" height="80vh" scrolling="yes"></iframe>
+<iframe id="vis1" src="index.html" height="80vh" scrolling="yes"></iframe>
                 The toy situation is odd. Why bother thinking about it? Because, surprising as it
                 might seem, the toy situation models important practical situations, so results
                 proved about the toy situation apply to these important practical situations
@@ -203,7 +187,7 @@ h1 {
                 <p>Back to the crate of boxes. We can represent the contents of a crate with frequency tables.
 <div class="expand-visualization sans type-s"><span class="expand">Expand</span><span class="close">Close</span>
 </div>
-<iframe src="index.html" height="80vh" scrolling="yes"></iframe>
+<iframe src="" height="80vh" scrolling="yes"></iframe>
                 The tables show which boxes are in the crate. For example: there are 2 boxes
                 containing a red ball, blue cube and labeled '1'; there is 1 box containing a
                 red ball, blue cube and labeled '2'. And so on. For each color of ball (red or
@@ -211,7 +195,7 @@ h1 {
                 tables have an entry telling us how many boxes containing that color of ball,
                 that color of cube, and with that label are in the crate. From this, we can infer
                 other information. For example: there are 2 + 2 + 2 + 1 + 1 + 2 + 2 + 2 = 14
-                boxes in total; there are 2 + 2 + 2 + 1 = 7 boxes labeled `1'; there are 1 + 2 = 3
+                boxes in total; there are 2 + 2 + 2 + 1 = 7 boxes labeled '1'; there are 1 + 2 = 3
                 boxes labeled '2' and containing a red ball.</p>
             <h2>2.3 Working out probabilities</h2>
               <p>You draw a box uniformly at random from the crate. That means all of the
@@ -253,32 +237,32 @@ h1 {
                 Let's look at a simple example. 
 <div class="expand-visualization sans type-s"><span class="expand">Expand</span><span class="close">Close</span>
 </div>
-<iframe src="index.html" height="80vh" scrolling="yes"></iframe>
+<iframe src="" height="80vh" scrolling="yes"></iframe>
                 Suppose the crate is as in Figure TBD and you
                 have to make categorical predictions. Given that you have to make categorical
-                predictions, four strategies are available: if `1' predict red and if `2' predict red;
-                if `1' predict red and if `2' predict green; if `1' predict green and if `2' predict
-                red; if `1' predict green and if `2' predict green. For each strategy we can ask,
+                predictions, four strategies are available: if '1' predict red and if '2' predict red;
+                if '1' predict red and if '2' predict green; if '1' predict green and if '2' predict
+                red; if '1' predict green and if '2' predict green. For each strategy we can ask,
                 What's the probability of predicting incorrectly when using that strategy? That
                 property|let's call it the strategy's overall error rate|is one of the properties
                 we'll be interested in.
-                Take the first strategy: if `1' predict red and if `2' predict red. What's the
+                Take the first strategy: if '1' predict red and if '2' predict red. What's the
                 probability you predict incorrectly when using that strategy? Well, when using
                 that strategy you predict incorrectly just if you draw a box containing a green
                 ball, and the probability of drawing a box containing a green ball is 7 in 14, or
                 50%. So the strategy's overall error rate is 50%.
-                Take the second strategy: if `1' predict red and if `2' predict green. What's
+                Take the second strategy: if '1' predict red and if '2' predict green. What's
                 the probability you predict incorrectly when using that strategy? Well, when
-                using that strategy you predict incorrectly just if you draw a box labeled `1'
-                3 containing a green ball or you draw a box labeled `2' containing a red ball, and
+                using that strategy you predict incorrectly just if you draw a box labeled '1'
+                3 containing a green ball or you draw a box labeled '2' containing a red ball, and
                 the probability of that is 6 in 14, or about 43%. So the strategy's overall error
                 rate is about 43%. Similarly, the third strategy's overall error rate is about 57%
                 and the fourth's is 50%.
-                The strategy which has the lowest overall error rate is the second: if `1' predict
-                red and if `2' predict green. You might have guessed this just by looking at
-                the frequency tables. Among the boxes labeled `1' more are red than green and
-                among the boxes labeled `2' more are green than red. So it makes sense that
-                predicting red for boxes labeled `1' and green for boxes labeled `2' has the lowest
+                The strategy which has the lowest overall error rate is the second: if '1' predict
+                red and if '2' predict green. You might have guessed this just by looking at
+                the frequency tables. Among the boxes labeled '1' more are red than green and
+                among the boxes labeled '2' more are green than red. So it makes sense that
+                predicting red for boxes labeled '1' and green for boxes labeled '2' has the lowest
                 overall error rate.
                 For each strategy we can also ask, What's the probability you predict incorrectly
                 when using that strategy, given that you draw a box containing a blue cube? and
@@ -297,10 +281,10 @@ h1 {
                 different: the probability that you predict incorrectly given that you draw a box
                 containing a blue cube is significantly higher than given that you draw a box
                 containing a yellow cube. Take the second strategy. What's the probability you predict incorrectly when using that strategy, given that you draw a box containing a blue cube? Well,
-                as we already noted, you predict incorrectly just if you draw a box labeled `1'
-                containing a green ball or you draw a box labeled `2' containing a red ball. There
-                are 7 boxes containing a blue cube and among these 7 boxes 2 are labeled `1'
-                and contain a green ball and 1 is labeled `2' and contains a red ball. So the
+                as we already noted, you predict incorrectly just if you draw a box labeled '1'
+                containing a green ball or you draw a box labeled '2' containing a red ball. There
+                are 7 boxes containing a blue cube and among these 7 boxes 2 are labeled '1'
+                and contain a green ball and 1 is labeled '2' and contains a red ball. So the
                 strategy's error rate among blue cube boxes is 3 in 7, or about 43%. Similarly,
                 its error rate among yellow cube boxes is also 3 in 7, or about 43%. The error
                 rates across blue and yellow cube boxes are the same.
@@ -356,14 +340,14 @@ h1 {
                   female. However the dean makes predictions based on the case file|whatever
                   her strategy|it shouldn't be biased in favor of male professors and against
                   female professors, or vice versa.</p>
-                <h2>Decision situations</h2>
+                <h2>3.3 Decision situations</h2>
                   <p>General description of prediction scenario, e.g. handwriting recognition, quality
                   control, to show how general problem is.
                   COMPAS</p>
                 <h2>3.4 How do the crates and boxes fit in?</h2>
 <div class="expand-visualization sans type-s"><span class="expand">Expand</span><span class="close">Close</span>
 </div>
-<iframe src="index.html" height="80vh" scrolling="yes"></iframe>
+<iframe src="" height="80vh" scrolling="yes"></iframe>
                   <p>Spelling out the analogy:
                   boxes prisoners faculty members color of ball (red or green) re-opened (yes or no) successful career (yes or no)
                   color of cube (blue or yellow) race (white or non-white) sex (male or female)
@@ -399,7 +383,7 @@ h1 {
                   </p>
 <div class="expand-visualization sans type-s"><span class="expand">Expand</span><span class="close">Close</span>
 </div>
-<iframe src="index.html" height="80vh" scrolling="yes"></iframe>
+<iframe src="" height="80vh" scrolling="yes"></iframe>
                 <h2>4.2 Risk assignments</h2>
                   <p>A more sophisticated kind of prediction is probabilistic. A probabilistic predic-
                   tion assigns a probability to the ball's being red|65%, say. (The probability
@@ -409,7 +393,7 @@ h1 {
                   </p>
 <div class="expand-visualization sans type-s"><span class="expand">Expand</span><span class="close">Close</span>
 </div>
-<iframe src="index.html" height="80vh" scrolling="yes"></iframe>
+<iframe src="" height="80vh" scrolling="yes"></iframe>
                 <h2>4.3 Randomization</h2>
                   <p>A decision rule is a deterministic function of the label: same label, same (cat-
                   egorical) prediction. A risk assignment is too: same label, same (probabilistic)
@@ -431,12 +415,12 @@ h1 {
                   probability < p > predict red. Here's a picture:
  <div class="expand-visualization sans type-s"><span class="expand">Expand</span><span class="close">Close</span>
 </div>
-<iframe src="index.html" height="80vh" scrolling="yes"></iframe>
+<iframe src="" height="80vh" scrolling="yes"></iframe>
                   In general, a risk assignment with randomization takes the form: if <label>,
                   with probability < p > predict red with probability < X% >. Here's a picture:
  <div class="expand-visualization sans type-s"><span class="expand">Expand</span><span class="close">Close</span>
 </div>
-<iframe src="index.html" height="80vh" scrolling="yes"></iframe>                 
+<iframe src="" height="80vh" scrolling="yes"></iframe>                 
                   Risk assignments with randomization use probabilities in two places. Look at the
                   picture. The numbers on the arrows describe the randomization. The numbers
                   in what the arrows point to describe the probabilistic predictions. A probability
@@ -451,7 +435,7 @@ h1 {
             <h1>5 Properties of strategies</h1>
 <div class="expand-visualization sans type-s"><span class="expand">Expand</span><span class="close">Close</span>
 </div>
-<iframe src="index.html" height="80vh" scrolling="yes"></iframe>
+<iframe src="" height="80vh" scrolling="yes"></iframe>
               <h2>5.1 Notation</h2>
                 <p>To save time and ink, let's introduce some notation. For example, instead of
                 writing
@@ -509,7 +493,7 @@ h1 {
                 breviated as a, b, c, d. The five other entries in the table are determined by
                 these.
                 For example, take the crate in Figure TBD again. Here is the confusion table
-                for the decision rule: if `1' predict red and if `2' predict green. (Figures are to
+                for the decision rule: if '1' predict red and if '2' predict green. (Figures are to
                 three decimal places.) 0.286 0.214 0.429
                 0.214 0.286 0.429
                 0.429 0.429 0.429
@@ -532,8 +516,8 @@ h1 {
                 with randomization. Everything still makes sense. Nothing conceptually new.
                 The calculations become only a little harder.
                 Show how calculations work in general.
-                Example. Crate as in Figure TBD. Decision rule with randomization: if `1', red
-                with prob .6, green with prob .4; if `2', red with prob .2, green with prob .8. We
+                Example. Crate as in Figure TBD. Decision rule with randomization: if '1', red
+                with prob .6, green with prob .4; if '2', red with prob .2, green with prob .8. We
                 get overall confusion table (left), for blue cube boxes (middle), for yellow cube
                 boxes (right):
                 0.214 0.286 0.571 0.200 0.229 0.533 0.229 0.343 0.600
@@ -549,7 +533,7 @@ h1 {
                 match the actual probabilities for each prediction:
                 More carefully:
                 P(B=r j X=x) = x
-                In words: for each probabilistic prediction `red with probability X%', the prob-
+                In words: for each probabilistic prediction 'red with probability X%', the prob-
                 ability that the box contains a red ball, given that you make that probabilistic
                 prediction, equals X%.
                 Relativize across groups, as before.
@@ -583,7 +567,7 @@ h1 {
 
 <div class="expand-visualization sans type-s"><span class="expand">Expand</span><span class="close">Close</span>
 </div>
-<iframe src="index.html" height="80vh" scrolling="yes"></iframe>
+<iframe src="" height="80vh" scrolling="yes"></iframe>
          
 <div class="meta p1 m1 mt3">
 	<table class="meta-table">

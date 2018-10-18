@@ -1,34 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title></title>
-   <meta name="viewport" content="width=device-width">
-   <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
-   <style>
 @font-face {
-  font-family: 'CMU Serif';
-  src: url('fonts/cmunti.eot'); /* IE9 Compat Modes */
-  src: url('fonts/cmunti.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('fonts/cmunti.woff') format('woff'), /* Modern Browsers */
-       url('fonts/cmunti.ttf')  format('truetype'), /* Safari, Android, iOS */
-       url('fonts/cmunti.svg#1f119954ff6b70c37e3ddb61d2164971') format('svg'); /* Legacy iOS */
-
-  font-style:   italic;
-  font-weight:  100;
-}
-
-@font-face {
-  font-family: 'CMU Serif';
-  src: url('fonts/cmunrm.eot'); /* IE9 Compat Modes */
-  src: url('fonts/cmunrm.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('fonts/cmunrm.woff') format('woff'), /* Modern Browsers */
-       url('fonts/cmunrm.ttf')  format('truetype'), /* Safari, Android, iOS */
-       url('fonts/cmunrm.svg#b19a3fcc59b1d4740e6d6e9eb9cec199') format('svg'); /* Legacy iOS */
-
-  font-style:   normal;
-  font-weight:  100;
-}
-   @font-face {
   font-family: 'CMU Serif';
   src: url('fonts/cmunti.eot'); /* IE9 Compat Modes */
   src: url('fonts/cmunti.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
@@ -73,48 +43,5 @@
        url('fonts/cmunbx.svg#d7e0fafe6573441f0dfff33be5e578f6') format('svg'); /* Legacy iOS */
 
   font-style:   normal;
+  font-weight:  700;
 }
-body, html {
-  top:0;
-  left:0;
-  margin:0;
-  animation: fadeIn 0.25s;
-}
-.button {
-  font-family:'CMU Serif', serif;
-  font-size:0.8em;
-  font-weight:100;
-  margin:auto;
-  width:20%;
-  padding:1.5%;
-  border-radius:1em;
-  line-height:0.8em;
-  border: 0.05em solid #4873EB;
-  color:#4873EB;
-  cursor:pointer;
-  text-align:center;
-}
-.button:hover {
-  background-color:#4873EB;
-  color:white;
-}
-@keyframes fadeIn{
-  0% {
-    transform:translateX(5em);
-    opacity:0;
-  }
-  100% {
-    transform:translateX(0em);
-    opacity:1;
-  }
-}
-
-   </style>
-</head>
-<body>
-
-<crate></crate>
-</body>
-
-<script type="text/javascript" src=script1.js></script>
-</html>

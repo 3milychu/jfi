@@ -36,14 +36,15 @@ d3.json("https://raw.githubusercontent.com/3milychu/cashtransfers/master/data/da
   json = json;
 
   json = json.filter(function(d) { 
-            return d.cat_recode != ""});
+            return d.cat_recode == 2});
 
   // create children hierarchy json
 
 var newData = { name :"root", 
-      path: "logo", 
+      path: "2_root", 
+      size: 85000,
       children : [] },
-    levels = ["cat_recode", "path"];
+    levels = ["path"];
 
 // For each data row, loop through the expected levels traversing the output tree
 json.forEach(function(d){
@@ -59,6 +60,7 @@ json.forEach(function(d){
         });
         // Add a branch if it isn't there
         if ( isNaN(index) ) {
+
             if(d[property] == 0 | d[property] ==1 | d[property] == 2 | d[property] == 3) {
               depthCursor.push({ name : d[property], path: d[property]+"_root", size: 120000, children : []});
             index = depthCursor.length - 1;
@@ -84,16 +86,9 @@ json.forEach(function(d){
  
   root = newData;
   root.fixed = true;
-  root.x = w /2 ;
-  root.y = h / 2;
+  root.x = w /2.2 ;
+  root.y = h / 2.1;
 
-  flatten(root);
-  setParents(root, null);
-  collapseAll(root);
-  root.children = root._children;
-  root._children = null;
- 
- 
         // Build the path
   var defs = vis.insert("svg:defs")
       .data(["end"]);
@@ -113,9 +108,9 @@ function update() {
   force.nodes(nodes)
         .links(links)
         .gravity(0.005)
-    .charge(-500)
-    .linkDistance(10)
-    .friction(0.6)
+    .charge(-1500)
+    .linkDistance(20)
+    .friction(0.5)
     .linkStrength(function(l, i) {return 1; })
     .size([w, h])
     .on("tick", tick)
@@ -153,10 +148,10 @@ function update() {
   // Append images
   var images = nodeEnter.append("svg:image")
         .attr("xlink:href",  function(d) { return "assets/"+d.path+".png";})
-        .attr("x", function(d) { return -(d.size/4000);})
-        .attr("y", function(d) { return -(d.size/4000);})
-        .attr("height", function(d) {return d.size / 2000;})
-        .attr("width", function(d) {return d.size / 2000;});
+        .attr("x", function(d) { return -(d.size/2500);})
+        .attr("y", function(d) { return -(d.size/2500);})
+        .attr("height", function(d) {return d.size / 1000;})
+        .attr("width", function(d) {return d.size / 1000;});
 
   var setEvents = images
   // Append details text
@@ -208,19 +203,19 @@ function update() {
             // select element in current context
             d3.select( this )
               .transition()
-              .attr("x", function(d) { return -(d.size/3500);})
-              .attr("y", function(d) { return -(d.size/3500);})
-              .attr("height", function(d) {return d.size / 2000 + 10;})
-              .attr("width", function(d) {return d.size / 2000 + 10;});
+              .attr("x", function(d) { return -(d.size/2000);})
+              .attr("y", function(d) { return -(d.size/2000);})
+              .attr("height", function(d) {return d.size / 1000 + 10;})
+              .attr("width", function(d) {return d.size / 1000 + 10;});
           })
           // set back
           .on( 'mouseleave', function() {
             d3.select( this )
               .transition()
-              .attr("x", function(d) { return -(d.size/4000);})
-              .attr("y", function(d) { return -(d.size/4000);})
-              .attr("height", function(d) {return d.size / 2000;})
-              .attr("width", function(d) {return d.size / 2000;});
+              .attr("x", function(d) { return -(d.size/2500);})
+              .attr("y", function(d) { return -(d.size/2500);})
+              .attr("height", function(d) {return d.size / 1000;})
+              .attr("width", function(d) {return d.size / 1000;});
           });
 
     var rollover = nodeEnter.append("svg:image")
@@ -228,8 +223,8 @@ function update() {
         .attr("xlink:href", function(d) { return "assets/"+d.hover+".png"; })
         .style("height","40")
         .style("z-index","1")
-        .attr("x", x_browser -45)
-        .attr("y", y_browser -45)
+        .attr("x", x_browser -40)
+        .attr("y", y_browser -40)
 
 
       // make the image grow a little on mouse over and add the text details on click
@@ -237,10 +232,12 @@ function update() {
           // Append details text
           .on( 'click', function (d) {
 
+
             // Details if "Economic"
             if (d.path == 4) {
               d3.select("p").html("Type of NOCT: " + d.NOCT_recode);
-              d3.select("h1").html("<span class='h-bold'>‡</span>" + "<div class='one'>economic effects</div>");
+              d3.select("h1").html("<span class='h-bold'>‡</span>" + "<div class='one'>economic effects</div>"
+                 +"<img class='effects' src='assets/4_icon.png'>");
               d3.select("h2").html("<div class='paper'>"+d.paper+"</div>"); 
               d3.select("h3").html(d.summ);
             }
@@ -248,7 +245,8 @@ function update() {
             // Details if sheet is "Psych"
             if (d.path == 5) {
               d3.select("p").html("Type of NOCT: " + d.NOCT_recode);
-              d3.select("h1").html("<span class='h-bold'>‡</span>"+ "<div class='two'>psychological effects</div>");
+              d3.select("h1").html("<span class='h-bold'>‡</span>"+ "<div class='two'>psychological effects</div>"
+                 +"<img class='effects' src='assets/5_icon.png'>");
               d3.select("h2").html("<div class='paper'>"+d.paper+"</div>"); 
               d3.select("h3").html(d.summ);
             }
@@ -256,7 +254,8 @@ function update() {
             // Details if sheet is "Social"
             if (d.path == 6) {
               d3.select("p").html("Type of NOCT: "+ d.NOCT_recode);
-              d3.select("h1").html("<span class='h-bold'>‡</span>"+"<div class='three'>social effects</div>");
+              d3.select("h1").html("<span class='h-bold'>‡</span>"+"<div class='three'>social effects</div>"
+                +"<img class='effects' src='assets/6_icon.png'>");
               d3.select("h2").html("<div class='paper'>"+d.paper+"</div>"); 
               d3.select("h3").html(d.summ);
             }
@@ -264,7 +263,8 @@ function update() {
             // Details if sheet is "Health"
             if (d.path == 7) {
               d3.select("p").html("Type of NOCT: " + d.NOCT_recode);
-              d3.select("h1").html("<span class='h-bold'>‡</span>"+"<div class='four'>health effects</div>");
+              d3.select("h1").html("<span class='h-bold'>‡</span>"+"<div class='four'>health effects</div>"
+                 +"<img class='effects' src='assets/7_icon.png'>");
               d3.select("h2").html("<div class='paper'>"+d.paper+"</div>"); 
               d3.select("h3").html(d.summ);
             }
@@ -272,7 +272,8 @@ function update() {
             // Details if sheet is "Schooling"
             if (d.path == 8) {
               d3.select("p").html("Type of NOCT: " + d.NOCT_recode);
-              d3.select("h1").html("<span class='h-bold'>‡</span>"+"<div class='five'>schooling effects</div>");
+              d3.select("h1").html("<span class='h-bold'>‡</span>"+"<div class='five'>schooling effects</div>"
+                 +"<img class='effects' src='assets/8_icon.png'>");
               d3.select("h2").html("<div class='paper'>"+d.paper+"</div>"); 
               d3.select("h3").html(d.summ);
             }
