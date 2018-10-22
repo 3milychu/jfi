@@ -9,13 +9,27 @@ function caps(string) {
 // some colour variables
 var tcBlack = "#130C0E";
 
+
 // rest of vars
-var w = window.innerWidth/1.5,
+if(window.innerWidth<=650){
+
+  var w = window.innerWidth,
     h = window.innerHeight,
     maxNodeSize = 1,
     x_browser = 20,
     y_browser = 25,
     root;
+
+} else {
+
+  var w = window.innerWidth/1.5,
+    h = window.innerHeight,
+    maxNodeSize = 1,
+    x_browser = 20,
+    y_browser = 25,
+    root;
+
+}
  
 var vis;
 var force = d3.layout.force(); 
@@ -153,50 +167,77 @@ function update() {
         .attr("height", function(d) {return d.size / 2000;})
         .attr("width", function(d) {return d.size / 2000;});
 
+// Toggle details on and off by iframe view
+details = document.getElementById('header');
+title = details.querySelector('h4');
+
+
+function detailsOn() {
+    if(window.innerWidth<=650){
+    details.style.display="block";
+    title.style.display="none";
+    close = document.createElement('div');
+    close.setAttribute("class","close");
+    close.innerHTML="X";
+    details.append(close);
+    close.addEventListener("click",function() {
+      details.style.display="none";
+    })
+  }
+}
   var setEvents = images
   // Append details text
           .on( 'click', function (d) {
 
             // Details if "Economic"
             if (d.path == 4) {
+              detailsOn();
               d3.select("p").html("Type of NOCT: " + d.NOCT_recode);
-              d3.select("h1").html("<span class='h-bold'>‡</span>" + "<div class='one'>economic effects</div>");
+              d3.select("h1").html("<span class='h-bold'>‡</span>" + "<div class='one'>economic effects</div>"
+                 +"<img class='effects' src='assets/4_icon.png'>");
               d3.select("h2").html("<div class='paper'>"+d.paper+"</div>"); 
               d3.select("h3").html(d.summ);
             }
 
             // Details if sheet is "Psych"
             if (d.path == 5) {
+              detailsOn();
               d3.select("p").html("Type of NOCT: " + d.NOCT_recode);
-              d3.select("h1").html("<span class='h-bold'>‡</span>"+ "<div class='two'>psychological effects</div>");
+              d3.select("h1").html("<span class='h-bold'>‡</span>"+ "<div class='two'>psychological effects</div>"
+                 +"<img class='effects' src='assets/5_icon.png'>");
               d3.select("h2").html("<div class='paper'>"+d.paper+"</div>"); 
               d3.select("h3").html(d.summ);
             }
 
             // Details if sheet is "Social"
             if (d.path == 6) {
+              detailsOn();
               d3.select("p").html("Type of NOCT: "+ d.NOCT_recode);
-              d3.select("h1").html("<span class='h-bold'>‡</span>"+"<div class='three'>social effects</div>");
+              d3.select("h1").html("<span class='h-bold'>‡</span>"+"<div class='three'>social effects</div>"
+                +"<img class='effects' src='assets/6_icon.png'>");
               d3.select("h2").html("<div class='paper'>"+d.paper+"</div>"); 
               d3.select("h3").html(d.summ);
             }
 
             // Details if sheet is "Health"
             if (d.path == 7) {
+              detailsOn();
               d3.select("p").html("Type of NOCT: " + d.NOCT_recode);
-              d3.select("h1").html("<span class='h-bold'>‡</span>"+"<div class='four'>health effects</div>");
+              d3.select("h1").html("<span class='h-bold'>‡</span>"+"<div class='four'>health effects</div>"
+                 +"<img class='effects' src='assets/7_icon.png'>");
               d3.select("h2").html("<div class='paper'>"+d.paper+"</div>"); 
               d3.select("h3").html(d.summ);
             }
 
             // Details if sheet is "Schooling"
             if (d.path == 8) {
+              detailsOn();
               d3.select("p").html("Type of NOCT: " + d.NOCT_recode);
-              d3.select("h1").html("<span class='h-bold'>‡</span>"+"<div class='five'>schooling effects</div>");
+              d3.select("h1").html("<span class='h-bold'>‡</span>"+"<div class='five'>schooling effects</div>"
+                 +"<img class='effects' src='assets/8_icon.png'>");
               d3.select("h2").html("<div class='paper'>"+d.paper+"</div>"); 
               d3.select("h3").html(d.summ);
             }
-                
               
            })
           .on( 'mouseenter', function() {
@@ -232,8 +273,9 @@ function update() {
           // Append details text
           .on( 'click', function (d) {
 
-            // Details if "Economic"
+             // Details if "Economic"
             if (d.path == 4) {
+              detailsOn();
               d3.select("p").html("Type of NOCT: " + d.NOCT_recode);
               d3.select("h1").html("<span class='h-bold'>‡</span>" + "<div class='one'>economic effects</div>"
                  +"<img class='effects' src='assets/4_icon.png'>");
@@ -243,6 +285,7 @@ function update() {
 
             // Details if sheet is "Psych"
             if (d.path == 5) {
+              detailsOn();
               d3.select("p").html("Type of NOCT: " + d.NOCT_recode);
               d3.select("h1").html("<span class='h-bold'>‡</span>"+ "<div class='two'>psychological effects</div>"
                  +"<img class='effects' src='assets/5_icon.png'>");
@@ -252,6 +295,7 @@ function update() {
 
             // Details if sheet is "Social"
             if (d.path == 6) {
+              detailsOn();
               d3.select("p").html("Type of NOCT: "+ d.NOCT_recode);
               d3.select("h1").html("<span class='h-bold'>‡</span>"+"<div class='three'>social effects</div>"
                 +"<img class='effects' src='assets/6_icon.png'>");
@@ -261,6 +305,7 @@ function update() {
 
             // Details if sheet is "Health"
             if (d.path == 7) {
+              detailsOn();
               d3.select("p").html("Type of NOCT: " + d.NOCT_recode);
               d3.select("h1").html("<span class='h-bold'>‡</span>"+"<div class='four'>health effects</div>"
                  +"<img class='effects' src='assets/7_icon.png'>");
@@ -270,6 +315,7 @@ function update() {
 
             // Details if sheet is "Schooling"
             if (d.path == 8) {
+              detailsOn();
               d3.select("p").html("Type of NOCT: " + d.NOCT_recode);
               d3.select("h1").html("<span class='h-bold'>‡</span>"+"<div class='five'>schooling effects</div>"
                  +"<img class='effects' src='assets/8_icon.png'>");

@@ -77,17 +77,17 @@ h1 {
 
 h2, h3 {
   font-family: 'CMU Serif', serif;
-  font-size:0.5em;
+  font-size:1em;
   font-weight:100;
 }
 
 h1 {
-  font-size:0.7em;
+  font-size:1.2em;
   font-weight:100;
 }
 
 h4 {
-  font-size:1em;
+  font-size:1.5em;
   font-family: 'Helvetica Neue', sans-serif;
   font-weight:200;
   letter-spacing:0.05em;
@@ -118,27 +118,9 @@ h4 {
 
 }
 /* vis */
-
-.header {
-  text-align:left;
-  width:30%;
-  padding:5%;
-  font-weight:400;
-  z-index:0;
-  display:block;
-}
-
 .header h4 {
   margin-bottom:0%;
 }
-
-.header p {
-  display:block;
-  font-size:0.7em;
-  line-height:1.5em;
-  width:60%;
-}
-
 .effects {
   width:15%;
   margin-left:15%;
@@ -190,7 +172,7 @@ path.link {
   display: none;
 }
 
-header {
+.header {
  width:25%;
  position:absolute;
  margin-left:70%;
@@ -224,23 +206,65 @@ header {
    body {
      width:100vh;
    }
-  .header{
-    width:90%;
-    height:90%;
-    background-color:black;
-    opacity:0.8;
-  }
-  .header h1{
-    width:80%;
-    font-size:10em;
-    line-height:1em;
-  }
-  .header p {
-    font-size:2em;
-  }
   .effects {
     width:18%;
     margin-left:5%;
   }
 
+ }
+
+ @media screen and (max-width:650px){
+  .header {
+    width:80%;
+    height:65%;
+    overflow-y:scroll;
+/*    border: 0.05em solid;*/
+    margin:5%;
+    padding:5%;
+    border-radius:0.5em;
+    background-image: linear-gradient(to bottom right, white, #F2F2F2);
+    opacity:0.9;
+    display:none;
+    animation:slideIn 0.5s;
+  }
+  #header::-webkit-scrollbar-track{
+      background-color: #F5F5F5;
+      opacity:0.9;
+    }
+  #header::-webkit-scrollbar {
+     width: 0.5em;
+     height: 0.5em;
+     background-color: #F2F2F2;
+    }
+  #header::-webkit-scrollbar-thumb {
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAYAAABytg0kAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAABZJREFUeNpi2r9//38gYGAEESAAEGAAasgJOgzOKCoAAAAASUVORK5CYII=);
+     background-color: #ED574B;
+    }
+  .effects{
+    width:5%;
+  }
+  .close {
+    font-family:"Helvetica-Neue",sans-serif;
+    font-size:0.5em;
+    padding:2%;
+    position:absolute;
+    top:0;
+    right:0;
+    margin:5%;
+    border: 0.1em solid;
+    cursor:pointer;
+  }
+  .close:hover {
+    color:white;
+    background-color:#ED574B;
+    border-color:#ED574B;
+  }
+  @keyframes slideIn {
+    0% {
+      height:0%;
+    }
+    100% {
+      height:65%;
+    }
+  }
  }
