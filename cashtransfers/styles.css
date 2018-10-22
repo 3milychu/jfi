@@ -213,7 +213,7 @@ path.link {
 
  }
 
- @media screen and (max-width:650px){
+ @media screen and (max-width:900px){
   .header {
     width:80%;
     height:65%;
